@@ -27,9 +27,9 @@ public class CommunicationController {
     @ApiOperation(value = "get retrieve information related with certain Mobile Communication Platform")
     public ResponseEntity<Message> getInformation(
             @ApiParam(name = "receivedDate", value = "receives a date parameter (YYYYMMDD)", required = true)
-            @RequestParam(value = "receivedDate", required = true) String receivedDate) {
+            @RequestParam(value = "receivedDate", required = true) String receivedDate) throws Exception{
 
-        searchMessages.searchingMessages(receivedDate);
+        searchMessages.search(receivedDate);
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message());
     }
 
