@@ -1,7 +1,8 @@
 package com.mobile.communication.domain;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
 
 
@@ -9,7 +10,7 @@ public class Message {
     private String message_type;
 
     // The timestamp of the message.
-    private Date timestamp;
+    private String timestamp;
 
     // Mobile identifier of the origin mobile (MSISDN)
     private String origin;
@@ -40,11 +41,11 @@ public class Message {
         this.message_type = message_type;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

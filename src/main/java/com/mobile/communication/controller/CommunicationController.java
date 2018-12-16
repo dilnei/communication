@@ -1,6 +1,7 @@
 package com.mobile.communication.controller;
 
-import com.mobile.communication.service.SearchMessages;
+import com.mobile.communication.domain.Metric;
+import com.mobile.communication.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,19 +19,28 @@ import com.mobile.communication.domain.Message;
 public class CommunicationController {
 
     @Autowired
-    private SearchMessages searchMessages;
+    private SearchService searchService;
 
-    @RequestMapping(path = "/getRetrieveInformation",
+    @RequestMapping(path = "/retrieveInformation",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "get retrieve information related with certain Mobile Communication Platform")
+    @ApiOperation(value = "Get retrieve information related with certain Mobile Communication Platform")
     public ResponseEntity<Message> getInformation(
-            @ApiParam(name = "receivedDate", value = "receives a date parameter (YYYYMMDD)", required = true)
+            @ApiParam(name = "receivedDate", value = "It receives a date parameter (YYYYMMDD)", required = true)
             @RequestParam(value = "receivedDate", required = true) String receivedDate) throws Exception{
 
-        searchMessages.search(receivedDate);
+        searchService.search(receivedDate);
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message());
     }
 
+    @RequestMapping(path = "/metrics",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "It returns a set of counters related with the processed JSON file")
+    public ResponseEntity<Metric> getMetrics() throws Exception{
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Metric());
+    }
 }
