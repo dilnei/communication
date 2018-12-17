@@ -4,11 +4,15 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mobile.communication.domain.Call;
 import com.mobile.communication.domain.Message;
 import com.mobile.communication.domain.Metric;
 import com.mobile.communication.domain.enums.MessageType;
+import com.mobile.communication.domain.enums.MobileSubscriber;
+import com.mobile.communication.domain.enums.StatusCode;
 import com.mobile.communication.exception.BusinessException;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +22,15 @@ import java.io.StringReader;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class SearchService {
@@ -41,15 +49,13 @@ public class SearchService {
         logger.log(Level.INFO, BusinessException.READING_MESSAGES);
 
         BufferedReader buffer = new BufferedReader(reader);
-        Long errorFields = buffer
-                .lines()
-                .map(item -> parse(item))
-                .filter(Objects::isNull).count();
-        logger.log(Level.INFO, BusinessException.ERROR_FIELDS, errorFields);
+        Supplier<Stream<String>> stream = () -> buffer.lines();
 
-        List<Message> messages = buffer
-                .lines()
-                .map(item -> parse(item))
+//        Long errorFields = stream.get().map(item -> parse(item))
+//                .filter(Objects::isNull).count();
+//        logger.log(Level.INFO, BusinessException.ERROR_FIELDS, errorFields);
+
+        List<Message> messages = buffer.lines().map(item -> parse(item))
                 .collect(Collectors.toList());
         logger.log(Level.INFO, BusinessException.MESSAGES_READ, messages.size());
 
@@ -65,11 +71,31 @@ public class SearchService {
         System.out.println("Number of messages with blank content: " + blank);
 
 
+        Map<String, Map<String, List<Message>>> OriginDestination = messages.stream()
+                .filter(msg -> msg.getMessage_type().equals(MessageType.CALL.name()))
+                .collect(Collectors.groupingBy(Message::getOrigin, Collectors.groupingBy(Message::getDestination)));
+
+        List<Call> calls = new ArrayList<>();
+        OriginDestination.forEach((key, value) -> {
+            Call call = new Call();
+            call.setCallsNumberOrigin(messages.stream().filter(k -> k.getOrigin().equals(key)
+                    && k.getMessage_type().equals(MessageType.CALL.name())).count());
+            call.setCallsNumberDestination(value.values().stream().count());
+            call.setCode(String.valueOf(MobileSubscriber.convertCodeToMobileSubscriber(key).getCountryAsCode()));
+            calls.add(call);
+        });
+
+        Map<String, Map<String, List<Message>>> teste = messages.stream()
+                .filter(msg -> msg.getMessage_type().equals(MessageType.CALL.name()))
+                .collect(Collectors.groupingBy(Message::getOrigin, Collectors.groupingBy(Message::getDestination)));
+
+
+
         Metric metric = new Metric();
         metric.setMissingFields(miss);
         metric.setBlankFields(blank);
-        metric.setWrongFields(errorFields);
-        metric.setCallNumbers(null);
+//        metric.setWrongFields(errorFields);
+        metric.setCalls(calls);
         metric.setRelationship(null);
         metric.setCallDuration(null);
         metric.setWordOccurrence(null);
@@ -137,7 +163,7 @@ public class SearchService {
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         try {
             message = mapper.readValue(item, Message.class);
-        } catch ( JsonParseException | JsonMappingException e) {
+        } catch (JsonParseException | JsonMappingException e) {
             logger.log(Level.WARNING, BusinessException.PARSE_ISSUE);
         } catch (IOException e) {
             logger.log(Level.WARNING, BusinessException.PARSE_ISSUE);

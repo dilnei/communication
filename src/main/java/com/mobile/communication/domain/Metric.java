@@ -1,10 +1,8 @@
 package com.mobile.communication.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Metric {
@@ -34,7 +32,8 @@ public class Metric {
     /**
      * Number of calls origin/destination grouped by country code (https://en.wikipedia.org/wiki/MSISDN).
      */
-    private Long callNumbers;
+    @OneToMany
+    private List<Call> calls;
 
     /**
      * Relationship between OK/KO calls.
@@ -84,12 +83,12 @@ public class Metric {
         this.wrongFields = wrongFields;
     }
 
-    public Long getCallNumbers() {
-        return callNumbers;
+    public List<Call> getCalls() {
+        return calls;
     }
 
-    public void setCallNumbers(Long callNumbers) {
-        this.callNumbers = callNumbers;
+    public void setCalls(List<Call> calls) {
+        this.calls = calls;
     }
 
     public Long getRelationship() {
