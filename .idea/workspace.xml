@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="520b2c93-502b-4d53-8dde-14744feffcee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/AverageCall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Ranking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid12875" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid13244" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid13405" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid14242" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid15358" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.attach_pid16136" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/KPIService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Call.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Call.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Country.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Metric.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/Metric.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/enums/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/domain/enums/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/exception/BusinessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/exception/BusinessException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/controller/CommunicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/controller/CommunicationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/service/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/mobile/communication/service/SearchService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Call.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Call.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Metric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Metric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/exception/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/MetricRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/MetricRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -82,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="47" column="81" lean-forward="true" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+            <state relative-caret-position="458">
+              <caret line="71" column="30" lean-forward="true" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,24 +76,66 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="75">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding>
                 <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
+                <element signature="e#926#927#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/KPIService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/KpiRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/MetricRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="349">
+              <caret line="94" column="54" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Kpi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="144" selection-start-column="144" selection-end-column="144" />
             </state>
           </provider>
         </entry>
@@ -159,11 +183,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Call.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Ranking.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/AverageCall.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Metric.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/MetricRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Kpis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/KpisRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/KpiRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Kpi.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/PKIService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java" />
       </list>
     </option>
   </component>
@@ -226,16 +256,14 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="communication" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="communication" type="b2602c69:ProjectViewProjectNode" />
               <item name="communication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="communication" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -244,7 +272,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545096486925" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545176744592" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/mobile/communication/domain" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -262,8 +290,10 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/mobile/communication/config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.mobile.communication.domain.enums" />
       <recent name="com.mobile.communication.service" />
+      <recent name="com.mobile.communication.domain" />
+      <recent name="com.mobile.communication.repository" />
+      <recent name="com.mobile.communication.domain.enums" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.mobile.communication.domain" />
@@ -464,25 +494,30 @@
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" order="0" />
-      <window_info id="Capture Tool" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2620064" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="2" weight="0.32969433" />
-      <window_info anchor="bottom" id="Messages" order="3" weight="0.32969433" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32969433" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.47270742" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.3995633" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info id="Project Explorer" order="0" />
+      <window_info id="Job Explorer" order="1" />
+      <window_info id="DB Browser" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Image Layers" order="7" />
+      <window_info content_ui="combo" id="Project" order="8" visible="true" weight="0.26840982" />
+      <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="DB Execution Console" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Console" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="4" weight="0.32969433" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32969433" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32969433" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.29039302" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.3995633" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5010917" side_tool="true" visible="true" weight="0.24866596" />
       <window_info anchor="right" id="Gradle" order="1" sideWeight="0.4989083" weight="0.24866596" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -494,37 +529,6 @@
       <window_info anchor="right" id="Ant Build" order="8" weight="0.2497332" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Designer" order="0" />
-      <window_info id="Capture Tool" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2620064" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="2" weight="0.32969433" />
-      <window_info anchor="bottom" id="Messages" order="3" weight="0.32969433" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32969433" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.47270742" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.3995633" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5010917" side_tool="true" visible="true" weight="0.24866596" />
-      <window_info anchor="right" id="Gradle" order="1" sideWeight="0.4989083" weight="0.24866596" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32977587" />
-      <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.2497332" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -635,7 +639,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java</url>
-          <line>50</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
@@ -794,13 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-11.fc29.x86_64/jre/lib/rt.jar!/java/nio/file/Path.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -851,9 +848,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/util/ItemDeserializer.java" />
-    <entry file="file://$PROJECT_DIR$/.attach_pid12875">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.attach_pid12875" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -963,26 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="47" column="81" lean-forward="true" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Metric.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -993,21 +968,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/MetricRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.1.3.RELEASE/7f3018f1227075cf6e5772659e042f7cdbe59cb6/spring-web-5.1.3.RELEASE-sources.jar!/org/springframework/http/HttpStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/domain/Kpi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="144" selection-start-column="144" selection-end-column="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/repository/KpiRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/controller/CommunicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="71" column="30" lean-forward="true" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/KPIService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/MetricsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#926#927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobile/communication/service/SearchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="94" column="54" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

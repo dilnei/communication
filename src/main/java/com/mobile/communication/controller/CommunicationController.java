@@ -1,7 +1,9 @@
 package com.mobile.communication.controller;
 
+import com.mobile.communication.domain.Kpi;
 import com.mobile.communication.domain.Metric;
 import com.mobile.communication.service.MetricsService;
+import com.mobile.communication.service.KPIService;
 import com.mobile.communication.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,26 +27,52 @@ public class CommunicationController {
     @Autowired
     private MetricsService metricsService;
 
-    @RequestMapping(path = "/retrieveInformation",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ResponseStatus(HttpStatus.OK)
+    @Autowired
+    private KPIService kpiService;
+
+    /**
+     * The service will have an HTTP endpoint that receives a date parameter (YYYYMMDD). This method will be requested to select the JSON file to process.
+     *
+     * @param receivedDate
+     * @return @code (HttpStatus.CREATED)
+     * @throws Exception
+     */
+    @RequestMapping(path = "/retrieveInformation", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Get retrieve information related with certain Mobile Communication Platform")
     public ResponseEntity<Message> getInformation(
             @ApiParam(name = "receivedDate", value = "It receives a date parameter (YYYYMMDD)", required = true)
-            @RequestParam(value = "receivedDate", required = true) String receivedDate) throws Exception{
+            @RequestParam(value = "receivedDate", required = true) String receivedDate) throws Exception {
 
         searchService.search(receivedDate);
         return ResponseEntity.status(HttpStatus.CREATED).body(new Message());
     }
 
-    @RequestMapping(path = "/metrics",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    /**
+     * The service will have an HTTP endpoint (/metrics) that returns a set of counters related with the processed JSON file.
+     *
+     * @return @code (HttpStatus.OK)
+     * @throws Exception
+     */
+    @RequestMapping(path = "/metrics", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "It returns a set of counters related with the processed JSON file")
-    public ResponseEntity<Metric> getMetrics() throws Exception{
+    public ResponseEntity<Metric> getMetrics() throws Exception {
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(metricsService.getCounters());
+        return ResponseEntity.status(HttpStatus.OK).body(metricsService.getCounters());
+    }
+
+    /**
+     * The service will have an HTTP endpoint (/kpis) that returns a set of counters related with the service.
+     *
+     * @return @code
+     * @throws Exception
+     */
+    @RequestMapping(path = "/kpis", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "It returns a set of counters related with the service")
+    public ResponseEntity<Kpi> getkpis() throws Exception {
+
+        return ResponseEntity.status(HttpStatus.OK).body(kpiService.getCounters());
     }
 }

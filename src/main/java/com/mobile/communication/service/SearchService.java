@@ -9,6 +9,7 @@ import com.mobile.communication.domain.enums.MessageType;
 import com.mobile.communication.domain.enums.MobileSubscriber;
 import com.mobile.communication.domain.enums.Word;
 import com.mobile.communication.exception.BusinessException;
+import com.mobile.communication.repository.KpiRepository;
 import com.mobile.communication.repository.MetricRepository;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,7 @@ import java.io.*;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,8 +38,12 @@ public class SearchService {
     @Autowired
     private MetricRepository metricRepository;
 
+    @Autowired
+    private KpiRepository kpiRepository;
+
     public void search(String date) throws Exception {
 
+        long start = System.nanoTime();
         URI uri = new URI(MessageFormat.format(addressFile, date));
         logger.log(Level.INFO, BusinessException.FIND_ADRRESS, uri.toString());
 
@@ -77,6 +79,7 @@ public class SearchService {
 
         List<Ranking> rankingsWords = rankingWordsOccurrence(messages);
 
+        long finish = System.nanoTime();
         Metric metric = new Metric();
         metric.setMissingFields(lost);
         metric.setBlankFields(blank);
@@ -88,9 +91,66 @@ public class SearchService {
 
         metricRepository.save(metric);
 
+        Kpi kpi = kpiRepository.findById(1L).get();
+        Integer numberFiles = kpi.getNumberFiles() + 1;
+        Integer rowsNumber = kpi.getRowsNumber() + messages.size();
+        Integer callsNumber = kpi.getCallsNumber() + metric.getCalls().size();
+        Integer messagesNumber = kpi.getMessagesNumber() + messages(messages).intValue();
+        Integer differentOriginCountry = kpi.getDifferentOriginCountry() + differenteOrigin(messages);
+        Integer differentDestinationCountry = kpi.getDifferentDestinationCountry() + differenteDestination(messages);
+        long timeElapsed = finish - start;
+
+        kpi.setNumberFiles(numberFiles);
+        kpi.setRowsNumber(rowsNumber);
+        kpi.setCallsNumber(callsNumber);
+        kpi.setMessagesNumber(messagesNumber);
+        kpi.setDifferentOriginCountry(differentOriginCountry);
+        kpi.setDifferentDestinationCountry(differentDestinationCountry);
+        kpi.setProcessingTime(timeElapsed);
+
+
+        kpiRepository.save(kpi);
+
 //        ObjectMapper mapper = new ObjectMapper();
 //        String jsonInString = mapper.writeValueAsString(metric);
 //        logger.log(Level.INFO, jsonInString);
+
+    }
+
+    /**
+     * Get a quantity of a list of messages.
+     *
+     * @param messages
+     * @return List<Ranking>
+     */
+    private Long messages(List<Message> messages) {
+        return messages.stream()
+                .filter(msg -> msg.getMessage_type() != null && msg.getMessage_type().equals(MessageType.MSG.name())).count();
+    }
+
+    /**
+     * Get a list of differente countries by origin.
+     *
+     * @param messages
+     * @return List<Ranking>
+     */
+    private Integer differenteOrigin(List<Message> messages) {
+        return messages.stream()
+                .filter(msg -> msg.getMessage_type() != null && msg.getMessage_type().equals(MessageType.MSG.name()))
+                .collect(Collectors.groupingBy(Message::getOrigin, Collectors.counting())).size();
+
+    }
+
+    /**
+     * Get a list of differente countries by destination.
+     *
+     * @param messages
+     * @return List<Ranking>
+     */
+    private Integer differenteDestination(List<Message> messages) {
+        return messages.stream()
+                .filter(msg -> msg.getMessage_type() != null && msg.getMessage_type().equals(MessageType.MSG.name()))
+                .collect(Collectors.groupingBy(Message::getDestination, Collectors.counting())).size();
 
     }
 
