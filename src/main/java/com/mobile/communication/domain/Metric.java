@@ -1,6 +1,8 @@
 package com.mobile.communication.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Metric {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
 
     /**
@@ -27,12 +30,12 @@ public class Metric {
     /**
      * Number of rows with fields errors.
      */
-    private Long wrongFields;
+    private Long errorFields;
 
     /**
      * Number of calls origin/destination grouped by country code (https://en.wikipedia.org/wiki/MSISDN).
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Call> calls;
 
     /**
@@ -43,12 +46,14 @@ public class Metric {
     /**
      * Average call duration grouped by country code (https://en.wikipedia.org/wiki/MSISDN).
      */
-    private Long callDuration;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<AverageCall> averageCallDuration;
 
     /**
      * Word occurrence ranking for the given words in message_content field.
      */
-    private Long wordOccurrence;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Ranking> wordOccurrence;
 
 
     public Long getId() {
@@ -76,11 +81,11 @@ public class Metric {
     }
 
     public Long getWrongFields() {
-        return wrongFields;
+        return errorFields;
     }
 
     public void setWrongFields(Long wrongFields) {
-        this.wrongFields = wrongFields;
+        this.errorFields = wrongFields;
     }
 
     public List<Call> getCalls() {
@@ -99,19 +104,20 @@ public class Metric {
         this.relationship = relationship;
     }
 
-    public Long getCallDuration() {
-        return callDuration;
+
+    public List<AverageCall> getAverageCallDuration() {
+        return averageCallDuration;
     }
 
-    public void setCallDuration(Long callDuration) {
-        this.callDuration = callDuration;
+    public void setAverageCallDuration(List<AverageCall> averageCallDuration) {
+        this.averageCallDuration = averageCallDuration;
     }
 
-    public Long getWordOccurrence() {
+    public List<Ranking> getWordOccurrence() {
         return wordOccurrence;
     }
 
-    public void setWordOccurrence(Long wordOccurrence) {
+    public void setWordOccurrence(List<Ranking> wordOccurrence) {
         this.wordOccurrence = wordOccurrence;
     }
 }

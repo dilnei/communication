@@ -7,4 +7,6 @@ public interface BusinessException {
     String CLOSING_STREAMS = "Closing streams...";
     String ERROR_FIELDS = "{0} rows with fields errors";
     String PARSE_ISSUE = "Problem parsing data, possible JSON malformation {0}";
+    String MISSING_FIELDS = "{0} rows with missing fields";
+    String BLANK_CONTENT = "{0} messages with blank content";
 }

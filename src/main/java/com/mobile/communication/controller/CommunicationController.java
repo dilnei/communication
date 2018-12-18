@@ -1,6 +1,7 @@
 package com.mobile.communication.controller;
 
 import com.mobile.communication.domain.Metric;
+import com.mobile.communication.service.MetricsService;
 import com.mobile.communication.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +21,9 @@ public class CommunicationController {
 
     @Autowired
     private SearchService searchService;
+
+    @Autowired
+    private MetricsService metricsService;
 
     @RequestMapping(path = "/retrieveInformation",
             method = RequestMethod.GET,
@@ -41,6 +45,6 @@ public class CommunicationController {
     @ApiOperation(value = "It returns a set of counters related with the processed JSON file")
     public ResponseEntity<Metric> getMetrics() throws Exception{
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(new Metric());
+        return ResponseEntity.status(HttpStatus.CREATED).body(metricsService.getCounters());
     }
 }

@@ -1,5 +1,7 @@
 package com.mobile.communication.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,17 +12,18 @@ public class Call {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
 
-    private String code;
+    private String countryCode;
     private Long callsNumberOrigin;
     private Long callsNumberDestination;
 
     public Call() {
     }
 
-    public Call(String code, Long callsNumberOrigin, Long callsNumberDestination) {
-        this.code = code;
+    public Call(String countryCode, Long callsNumberOrigin, Long callsNumberDestination) {
+        this.countryCode = countryCode;
         this.callsNumberOrigin = callsNumberOrigin;
         this.callsNumberDestination = callsNumberDestination;
     }
@@ -33,12 +36,12 @@ public class Call {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public Long getCallsNumberOrigin() {

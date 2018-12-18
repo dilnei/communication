@@ -2,9 +2,19 @@ package com.mobile.communication.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
 
+    public Message() {
+    }
+
+    public Message(String origin, String destination, String status_code) {
+        this.origin = origin;
+        this.destination = destination;
+        this.status_code = status_code;
+    }
 
     // The type of the message. Two values are valid: {CALL|MSG}
     private String message_type;
@@ -19,7 +29,7 @@ public class Message {
     private String destination;
 
     // Call duration. Only for CALL (message_type)
-    private String duration;
+    private Integer duration;
 
     // Status code of the call. Only for CALL (message_type). Two values are valid: {OK|KO}
     private String status_code;
@@ -65,11 +75,11 @@ public class Message {
         this.destination = destination;
     }
 
-    public String getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
@@ -105,23 +115,24 @@ public class Message {
         this.message_status = message_status;
     }
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Message message = (Message) object;
-        return timestamp.equals(message.timestamp);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(timestamp, message.timestamp);
     }
 
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), timestamp);
+        return Objects.hash(timestamp);
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Message{" +
                 "message_type='" + message_type + '\'' +
-                ", timestamp=" + timestamp +
+                ", timestamp='" + timestamp + '\'' +
                 ", origin='" + origin + '\'' +
                 ", destination='" + destination + '\'' +
                 ", duration='" + duration + '\'' +

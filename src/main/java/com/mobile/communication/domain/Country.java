@@ -5,6 +5,7 @@ public class Country {
     private String name;
     private Integer code;
     private String prefix;
+    private Double averageCallDuration;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class Country {
 
     public void setPrefix(String prefix) {
         this.prefix = prefix;
+    }
+
+    public Double getAverageCallDuration() {
+        return averageCallDuration;
+    }
+
+    public void setAverageCallDuration(Double averageCallDuration) {
+        this.averageCallDuration = averageCallDuration;
     }
 }

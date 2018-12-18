@@ -2,7 +2,10 @@ package com.mobile.communication.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mobile.communication.domain.Message;
+import com.mobile.communication.domain.Metric;
+import com.mobile.communication.repository.MetricRepository;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +22,11 @@ import java.util.stream.Collectors;
 @Service
 public class MetricsService {
 
+    @Autowired
+    private MetricRepository metricRepository;
+
+    public Metric getCounters(){
+      return metricRepository.findTopByOrderByIdDesc();
+    }
 
 }
